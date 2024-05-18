@@ -1,16 +1,10 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import calculator "example.com/essentials/calculators"
+
+//investmentcalculator "example.com/essentials/investment-calculator"
 
 func main() {
-	var investmentAmount float64 = 1000
-	var expectedReturnRate float64 = 5.5
-	var years float64 = 10
-
-	var futureValue = investmentAmount * math.Pow((1+expectedReturnRate/100), years)
-
-	fmt.Println(futureValue)
+	//investmentcalculator.InvestmentCalculator()
+	calculator.ProfitCalculator()
 }
