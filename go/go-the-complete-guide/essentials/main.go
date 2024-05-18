@@ -6,5 +6,5 @@ import calculator "example.com/essentials/calculators"
 
 func main() {
 	//investmentcalculator.InvestmentCalculator()
-	calculator.ProfitCalculator()
+	calculator.InvestmentCalculator()
 }
