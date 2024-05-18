@@ -57,3 +57,8 @@ func ProfitCalculator() {
 
 	fmt.Printf("calculated ebt is %.2f, expenses %.2f and ratio %.2f", ebt, expenses, ratio)
 }
+
+func outputText(text, text2 string) {
+	fmt.Print(text)
+	fmt.Print(text2)
+}
