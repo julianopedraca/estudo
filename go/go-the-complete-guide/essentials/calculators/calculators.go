@@ -20,8 +20,7 @@ func InvestmentCalculator() {
 	fmt.Print("years: ")
 	fmt.Scan(&years)
 
-	futureValue := investmentAmount * math.Pow((1+expectedReturnRate/100), years)
-	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
+	futureValue, futureRealValue := calculateFutureValues(investmentAmount, expectedReturnRate, years, inflationRate)
 
 	// fmt.Println(futureValue)
 	// fmt.Println(futureRealValue)
@@ -61,4 +60,10 @@ func ProfitCalculator() {
 func outputText(text, text2 string) {
 	fmt.Print(text)
 	fmt.Print(text2)
+}
+
+func calculateFutureValues(investmentAmount, expectedReturnRate, years, inflationRate float64) (float64, float64) {
+	fv := investmentAmount * math.Pow((1+expectedReturnRate/100), years)
+	rfv := fv / math.Pow(1+inflationRate/100, years)
+	return fv, rfv
 }
