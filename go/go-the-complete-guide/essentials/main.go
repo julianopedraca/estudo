@@ -1,10 +1,10 @@
 package main
 
-import profitcalculator "example.com/essentials/profit-calculator"
+import calculator "example.com/essentials/calculators"
 
 //investmentcalculator "example.com/essentials/investment-calculator"
 
 func main() {
 	//investmentcalculator.InvestmentCalculator()
-	profitcalculator.ProfitCalculator()
+	calculator.ProfitCalculator()
 }
