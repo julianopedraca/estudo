@@ -9,11 +9,11 @@ func main() {
 
 	agePointer = &age
 
-	fmt.Println("Age:", age)
+	//use the asteristic if you want to get the value behind the pointer
+	fmt.Println("Age:", *agePointer)
 
-	adultYears := getAdultYears(age)
-
-	fmt.Println(adultYears)
+	// adultYears := getAdultYears(age)
+	// fmt.Println(adultYears)
 }
 
 func getAdultYears(age int) int {
