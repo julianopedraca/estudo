@@ -12,10 +12,10 @@ func main() {
 	//use the asteristic if you want to get the value behind the pointer
 	fmt.Println("Age:", *agePointer)
 
-	// adultYears := getAdultYears(age)
-	// fmt.Println(adultYears)
+	adultYears := getAdultYears(agePointer)
+	fmt.Println(adultYears)
 }
 
-func getAdultYears(age int) int {
-	return age - 18
+func getAdultYears(age *int) int {
+	return *age - 18
 }
