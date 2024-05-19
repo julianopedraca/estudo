@@ -73,7 +73,3 @@ func main() {
 		}
 	}
 }
-
-func getBalanceFromFile(accountBalanceFile string) {
-	panic("unimplemented")
-}
