@@ -1,4 +1,4 @@
-package investmentcalculator
+package main
 
 import (
 	"fmt"
@@ -20,15 +20,19 @@ func InvestmentCalculator() {
 	fmt.Print("years: ")
 	fmt.Scan(&years)
 
-	futureValue := investmentAmount * math.Pow((1+expectedReturnRate/100), years)
-	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
+	futureValue, futureRealValue := calculateFutureValues(investmentAmount, expectedReturnRate, years, inflationRate)
 
 	fmt.Println(futureValue)
 	fmt.Println(futureRealValue)
 
-	formattedFV := fmt.Sprintf("Future Value: %.1f\n", futureValue)
+	// formattedFV := fmt.Sprintf("Future Value: %.1f\n", futureValue)
 
-	fmt.Print(formattedFV)
+	// fmt.Print(formattedFV)
+
+	// fmt.Printf(`
+	// 	the future value is: %.2f
+	// 	the future realValue is: %.2f
+	// `, futureValue, futureRealValue)
 
 }
 
@@ -51,4 +55,16 @@ func ProfitCalculator() {
 	ratio := ebt / profit
 
 	fmt.Printf("calculated ebt is %.2f, expenses %.2f and ratio %.2f", ebt, expenses, ratio)
+}
+
+func outputText(text, text2 string) {
+	fmt.Print(text)
+	fmt.Print(text2)
+}
+
+func calculateFutureValues(investmentAmount, expectedReturnRate, years, inflationRate float64) (fv float64, rfv float64) {
+	fv = investmentAmount * math.Pow((1+expectedReturnRate/100), years)
+	rfv = fv / math.Pow(1+inflationRate/100, years)
+	//return fv, rfv
+	return
 }
