@@ -12,6 +12,26 @@ type user struct {
 	createdAt time.Time
 }
 
+// struct method
+func (u user) outputUserDetails() {
+
+	// the "correct" way to access a field of a struct, that's a exception for pointers to struct
+	//fmt.Println((*u).firstName, (*u).lastName, (*u).birthDate)
+
+	//synthatic sugar
+	fmt.Println(u.firstName, u.lastName, u.birthDate)
+}
+
+// function with pointer to struct
+// func outputUserDetails(u *user) {
+
+// the "correct" way to access a field of a struct, that's a exception for pointers to struct
+//fmt.Println((*u).firstName, (*u).lastName, (*u).birthDate)
+
+//synthatic sugar
+// fmt.Println(u.firstName, u.lastName, u.birthDate)
+// }
+
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
@@ -36,16 +56,7 @@ func main() {
 
 	// ... do something awesome with that gathered data!
 
-	outputUserDetails(&appUser)
-}
-
-func outputUserDetails(u *user) {
-
-	// the "correct" way to access a field of a struct, that's a exception for pointers to struct
-	//fmt.Println((*u).firstName, (*u).lastName, (*u).birthDate)
-
-	//synthatic sugar
-	fmt.Println(u.firstName, u.lastName, u.birthDate)
+	appUser.outputUserDetails()
 }
 
 func getUserData(promptText string) string {
