@@ -13,7 +13,7 @@ type user struct {
 }
 
 // struct method
-func (u user) outputUserDetails() {
+func (u *user) outputUserDetails() {
 
 	// the "correct" way to access a field of a struct, that's a exception for pointers to struct
 	//fmt.Println((*u).firstName, (*u).lastName, (*u).birthDate)
@@ -31,6 +31,11 @@ func (u user) outputUserDetails() {
 //synthatic sugar
 // fmt.Println(u.firstName, u.lastName, u.birthDate)
 // }
+
+func (u *user) clearUserName() {
+	u.firstName = ""
+	u.lastName = ""
+}
 
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
@@ -56,6 +61,8 @@ func main() {
 
 	// ... do something awesome with that gathered data!
 
+	appUser.outputUserDetails()
+	appUser.clearUserName()
 	appUser.outputUserDetails()
 }
 
