@@ -37,12 +37,25 @@ func (u *user) clearUserName() {
 	u.lastName = ""
 }
 
+// new is a convecion
+// utility function that create a struct
+func newUser(firstName, lastName, birthdate string) *user {
+	return &user{
+		firstName: firstName,
+		lastName:  lastName,
+		birthDate: birthdate,
+		createdAt: time.Now(),
+	}
+}
+
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
 	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var appUser user
+	var appUser *user
+
+	appUser = newUser(userFirstName, userLastName, userBirthdate)
 
 	// appUser = user{
 	// 	firstName: userFirstName,
@@ -52,12 +65,12 @@ func main() {
 	// }
 
 	//shorter notation
-	appUser = user{
-		userFirstName,
-		userLastName,
-		userBirthdate,
-		time.Now(),
-	}
+	// appUser = user{
+	// 	userFirstName,
+	// 	userLastName,
+	// 	userBirthdate,
+	// 	time.Now(),
+	// }
 
 	// ... do something awesome with that gathered data!
 
