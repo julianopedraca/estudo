@@ -19,6 +19,12 @@ func main() {
 		return
 	}
 
+	admin := user.NewAdmin("test@example.com", "test123")
+
+	admin.User.OutputUserDetails()
+	admin.User.ClearUserName()
+	admin.User.OutputUserDetails()
+
 	// appUser = user{
 	// 	firstName: userFirstName,
 	// 	lastName:  userLastName,
@@ -33,8 +39,6 @@ func main() {
 	// 	userBirthdate,
 	// 	time.Now(),
 	// }
-
-	// ... do something awesome with that gathered data!
 
 	appUser.OutputUserDetails()
 	appUser.ClearUserName()
