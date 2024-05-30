@@ -15,10 +15,18 @@ type User struct {
 	createdAt time.Time
 }
 
+// explicit embeding
+// type Admin struct {
+// 	email    string
+// 	password string
+// 	User     User
+// }
+
+// anonimous embeding
 type Admin struct {
 	email    string
 	password string
-	User     User
+	User
 }
 
 // struct method
