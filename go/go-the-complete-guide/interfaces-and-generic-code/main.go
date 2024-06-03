@@ -129,3 +129,8 @@ func getUserInput(prompt string) string {
 
 	return text
 }
+
+// generics
+func add[T int | float64 | string](a, b T) T {
+	return a + b
+}
