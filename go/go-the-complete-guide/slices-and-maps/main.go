@@ -19,4 +19,18 @@ func main() {
 	featuredPrices := prices[1:3]
 
 	fmt.Println(featuredPrices)
+
+	// dynamic lists with slices
+	dynamicList := []float64{10.99, 8.99}
+
+	fmt.Println(dynamicList[1])
+
+	updatedDynamicList := append(dynamicList, 5.99)
+	fmt.Println(updatedDynamicList)
+
+	unpackingList := []float64{101.99, 80.99, 20.59}
+	//unpacking list values
+	dynamicList = append(dynamicList, unpackingList...)
+	fmt.Println(dynamicList)
+
 }
