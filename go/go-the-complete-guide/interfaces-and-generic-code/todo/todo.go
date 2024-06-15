@@ -5,26 +5,20 @@ import (
 	"errors"
 	"fmt"
 	"os"
-	"strings"
-	"time"
 )
 
-type Note struct {
-	Title     string    `json:"title"`
-	Content   string    `json:"content"`
-	CreatedAt time.Time `json:"created_at"`
+type Todo struct {
+	Content string `json:"text"`
 }
 
-func (note Note) Display() {
-	fmt.Printf("Your note titled %v has the following content:\n\n%v\n\n", note.Title, note.Content)
+func (todo Todo) Display() {
+	fmt.Println(todo)
 }
 
-func (note Note) Save() error {
-	fileName := strings.ReplaceAll(note.Title, " ", "_")
-	fileName = strings.ToLower(fileName) + ".json"
+func (todo Todo) Save() error {
+	fileName := "todo.json"
 
-	json, err := json.Marshal(note)
-
+	json, err := json.Marshal(todo)
 	if err != nil {
 		return err
 	}
@@ -32,14 +26,12 @@ func (note Note) Save() error {
 	return os.WriteFile(fileName, json, 0644)
 }
 
-func New(title, content string) (Note, error) {
-	if title == "" || content == "" {
-		return Note{}, errors.New("Invalid input.")
+func New(content string) (Todo, error) {
+	if content == "" {
+		return Todo{}, errors.New("Invalid input.")
 	}
 
-	return Note{
-		Title:     title,
-		Content:   content,
-		CreatedAt: time.Now(),
+	return Todo{
+		Content: content,
 	}, nil
 }
